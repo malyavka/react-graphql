@@ -1,68 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+// Use the payload below to do the tasks:
 
-## Available Scripts
+// 1) Create the following:
 
-In the project directory, you can run:
+// // - Add New Contact (Priority:★★★★★)
+// // // Entry form that can add new contacts and relate 
+// // // (if applicable) to other previous entities and vice versa 
+// // // (where the latter will now also relate to the newly entered contact)
+// // // Sample new Contact:
+// // // { id: 8,
+// // //   displayName: "Dylan Reiner",
+// // //   title: "Baby",
+// // //   company: null,
+// // //   location: "New York City",
+// // //   pets: [],
+// // //   relationships: [{ id: 2, type: "Dad" }, { id: 6, type: "Mom" }]}
 
-### `npm start`
+// // - Single Profile View (Priority:★★★★☆)
+// // // Display each key value on a page and link to other
+// // // related entities.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+// // - Search Page (Priority:★★★☆☆)
+// // // Search and display related entities based on partial/fuzzy
+// // // search by any key/relational value
+// // // (Sample Searchs(Refer to contacts payload below):
+// // // // Ken -> {id:1,...}
+// // // // Girlfriend -> [{id:5,...}, {id:3,...}])
+// // // Do not preload all contacts on page, only load 
+// // // exact relational entity 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+const contacts = [{
+  id: 1,
+  displayName: "Kenneth Lai",
+  title: "Software Engineer",
+  company: "Grapevine",
+  location: "New York City",
+  pets: [],
+  relationships: [{ id: 5, type: "Girlfriend" }]
+},
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+{
+  id: 2,
+  displayName: "Andrew Reiner",
+  title: "Cofounder",
+  company: "Grapevine",
+  location: "New York City",
+  pets: [{ displayName: "Nike", type: "dog" }],
+  relationships: [{ id: 6, type: "Wife" }]
+},
+{
+  id: 3,
+  displayName: "Lloyd Emelle",
+  title: "Lead Hacker",
+  company: "Grapevine",
+  location: "New York City",
+  pets: [],
+  relationships: [{ id: 7, type: "Girlfriend" }]
+},
+{
+  id: 4,
+  displayName: "Rich Prior",
+  title: "Lead Designer",
+  company: "Grapevine",
+  location: "New York City",
+  pets: [],
+  relationships: [{ id: 9, type: "Wife" }]
+},
+{
+  id: 5,
+  displayName: "Gina Lee",
+  title: "CEO",
+  company: "BanCard Plus",
+  location: "New York City",
+  pets: [{ displayName: "Jjong", type: "dog" }, { displayName: "Sweetie", type: "cat" }],
+  relationships: [{ id: 1, type: "Boyfriend" }]
+},
+{
+  id: 6,
+  displayName: "Kristen Reiner",
+  title: "Investor Relations Business Development",
+  company: "The Blackstone Group",
+  location: "New York City",
+  pets: [],
+  relationships: [{ id: 2, type: "Husband" }]
+},
+{
+  id: 7,
+  displayName: "Stacey",
+  title: null,
+  company: null,
+  location: "New York City",
+  pets: [],
+  relationships: [{ id: 3, type: "Boyfriend" }]
+},
+{
+  id: 9,
+  displayName: "Leah Prior",
+  title: null,
+  company: null,
+  location: "New York City",
+  pets: [],
+  relationships: [{ id: 4, type: "Husband" }]
+}]
