@@ -4,7 +4,7 @@ const graphqlHTTP = require('express-graphql');
 const gql = require('graphql-tag');
 const { buildASTSchema } = require('graphql');
 
-const contacts = [{
+const CONTACTS = [{
     id: 1,
     displayName: "Kenneth Lai",
     title: "Software Engineer",
@@ -90,15 +90,16 @@ const schema = buildASTSchema(gql`
     title: String
     company: String
     location: String
-    pets: [String] 
+    pets: [String]
+    relationships: [Contact]
   }
 `);
 
 const mapContact = (contact, id) => contact && ({ id, ...contact });
 
 const root = {
-    contacts: () => contacts.map(mapContact),
-    contact: ({ id }) => mapContact(contacts[id], id),
+    contacts: () => CONTACTS.map(mapContact),
+    contact: ({ id }) => mapContact(CONTACTS[id], id),
 };
 
 const app = express();
